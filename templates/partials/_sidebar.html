@@ -1,0 +1,25 @@
+{% load static %}
+<nav>
+  <ul class="text-xl text-stone-50">
+    <li class="mb-4"><a href="{% url 'dashboard' %}"><img src="{% static 'images/securex-logo.png' %}" alt="logo"></a></li>
+    <li>
+
+      <a href="{% url 'dashboard' %}">
+        <span class="material-icons text-black">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'venues' %}" class="flex items-center ">
+        <span class="material-icons text-black">location_on</span>
+        <span>Venues</span>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'events' %}" class="flex items-center">
+        <span class="material-icons text-black">event</span>
+        <span>Events</span>
+      </a>
+    </li>
+  </ul>
+</nav>

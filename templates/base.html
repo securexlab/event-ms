@@ -1,0 +1,39 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>EMS</title>
+    <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <div class="w-[13%] bg-[#754f5b] p-4">
+        {% include 'partials/_sidebar.html' %}
+      </div>
+      
+      <!-- Main Content Section -->
+      <div class="flex-1 flex flex-col">
+        <!-- Navbar -->
+        <div class="bg-[#e6dbd0] text-white p-4">
+          {% include 'partials/_navbar.html' %}
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="flex-1 p-4 overflow-auto bg-[#f9e0d9]">
+          {% block content %}{% endblock %}
+          {% tailwind_css %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" id="venue-form">
+    {% csrf_token %}
+    <div>Add Venue </div>
+    <div>
+        <label for="name">Name</label>
+        {{ form.name }}
+    </div>
+    <div>
+        <label for="address">Address</label>
+        {{ form.address }}
+    </div>
+    <div>
+        <label for="capacity">Capacity</label>
+        {{ form.capacity }}
+    </div>
+    <div>
+        <label for = "parking">Parking</label>
+        {{ form.parking }}
+    </div>
+    <input type="submit" value="Submit"></input>
+</form>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div>
+  <div class="flex justify-between">
+    <span class="text-xl">Venues</span>
+    <span class="text-sm">Total Venues: {{venues_count}}</span>
+    <a href="{% url 'add_venue' %}">Add New</a>
+  </div>
+  <div>
+    <div>
+      <table class="w-full text-left border-collapse border border-black" style="border: 1px solid black;">
+        <thead>
+          <tr>
+            <th class="px-4 py-2" style="border: 1px solid black;">S.N.</th>
+            <th class="px-4 py-2" style="border: 1px solid black;">Name</th>
+            <th class="px-4 py-2" style="border: 1px solid black;">Address</th>
+            <th class="px-4 py-2" style="border: 1px solid black;">Capacity</th>
+            <th class="px-4 py-2" style="border: 1px solid black;">Parking</th>
+            <th class="px-4 py-2" style="border: 1px solid black;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for venue in venues %}
+          <tr class="text-center">
+            <td class="px-4 py-2" style="border: 1px solid black;">{{ venue.id }}</td>
+            <td class="px-4 py-2" style="border: 1px solid black;">{{ venue.name }}</td>
+            <td class="px-4 py-2" style="border: 1px solid black;">{{ venue.address }}</td>
+            <td class="px-4 py-2" style="border: 1px solid black;">{{ venue.capacity }}</td>
+            <td class="px-4 py-2" style="border: 1px solid black;">{{ venue.parking }}</td>
+            <td class="px-4 py-2" style="border: 1px solid black;">
+              <button class="border-2 border-t-stone-900"><a href="{% url 'add_venue' venue.id %}"><span class="material-icons">edit</span></a></button>
+              <button ><a href="{% url 'delete_venue' venue.id %}"><span class="material-icons">delete</span></a></button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

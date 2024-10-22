@@ -1,0 +1,42 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    {% tailwind_css %}
+</head>
+<body class="h-screen flex items-center justify-center bg-gray-100">
+    <div class="bg-white p-8 shadow-md rounded-md">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3 class="text-xl mb-4">Login</h3>
+            <div class="mb-4">
+                <input
+                    type="text"
+                    class="form-control w-full px-4 py-2 border rounded-md"
+                    name="username"
+                    id="InputEmail"
+                    placeholder="Username"
+                    required
+                />
+            </div>
+            <div class="mb-4">
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control w-full px-4 py-2 border rounded-md"
+                    id="InputPassword"
+                    placeholder="Password"
+                    required
+                />
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md">Submit</button>
+            <div class="mt-4 text-center">
+                <a href="{% url 'reset-password-form' %}" class="text-blue-500 hover:underline">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
